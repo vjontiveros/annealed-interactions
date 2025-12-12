@@ -3,7 +3,8 @@
 
 packages <- c("tidyverse", #used all over
               "nnls", #used in gLV_moments
-              "matrixStats" #used in gLV_moments
+              "matrixStats", #used in gLV_moments
+              "zoo" #used in best_moments
               )
 
 
