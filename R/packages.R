@@ -5,7 +5,10 @@ packages <- c("tidyverse", #used all over
               "nnls", #used in gLV_moments
               "matrixStats", #used in gLV_moments
               "zoo", #used in best_moments
-              "rgbif" #used to retrieve ecnasap data
+              "rgbif", #used to retrieve ecnasap data
+              "strucchangeRcpp", #identifies breakpoints in mu 
+              "MASS", #estimates the shape of the gamma distribution
+              "fitdistrplus" #estimates the shape of the gamma distribution
               )
 
 
