@@ -8,7 +8,8 @@ source("R/nll_gamma.R")
 
 # Load data ---------------------------------------------------------------
 
-load("data/processed/ecnasap.RData") 
+# load("data/processed/ecnasap.RData") 
+load("data/processed/WVirginia.RData") 
 
 # The temporal dataset should be called data. It should have species in the
 # columns and years in the rows. Each cell, thus, should be abundance or
@@ -52,9 +53,6 @@ plot(fs)
 # therefore a unique fixed point. Otherwise, we will encounter a community with
 # MA.
 
-library(MASS)
-library(fitdistrplus)
-
 x <- unname(unlist(data[,order(colSums(data), decreasing = T)[1:break_at]]))
 
 fit <- fitdistr(x, densfun = "gamma", start = list(shape = 1, rate = 1),       # buen punto de partida
@@ -90,7 +88,7 @@ shape_hat
 
 # Getting the best moments through a moving windows approach. -------------
 
-ll <- 20 #least window length, select a number
+ll <- 50 #least window length, select a number
 fl <- nrow(data) - 1 #maximum window length
 ls <- 1 #Step to search for window lengths (1 to look for all windows in the range)
 
