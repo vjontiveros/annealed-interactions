@@ -38,7 +38,7 @@ ggplot(moments %>% add_column(Rank = n:m) %>%
 
 x <- moments$mu
 
-fs <- Fstats(x ~ 1, .1, .9)
+fs <- Fstats(x ~ seq_along(x), .1, .9)
 break_at <- breakpoints(fs)$breakpoints + n - 1
 # As we start the series with n species, the breakpoint is at the indicated
 # observed number + n-1.
