@@ -9,7 +9,8 @@ source("R/nll_gamma.R")
 # Load data ---------------------------------------------------------------
 
 # load("data/processed/ecnasap.RData") 
-load("data/processed/WVirginia.RData") 
+# load("data/processed/WVirginia.RData") 
+load("data/processed/portal_rodents.RData")
 
 # The temporal dataset should be called data. It should have species in the
 # columns and years in the rows. Each cell, thus, should be abundance or
@@ -37,6 +38,7 @@ ggplot(moments %>% add_column(Rank = n:m) %>%
 # Identify breakpoint -----------------------------------------------------
 
 x <- moments$mu
+# x <- moments$`T/r`
 
 fs <- Fstats(x ~ seq_along(x), .1, .9)
 break_at <- breakpoints(fs)$breakpoints + n - 1
@@ -88,7 +90,7 @@ shape_hat
 
 # Getting the best moments through a moving windows approach. -------------
 
-ll <- 50 #least window length, select a number
+ll <- 490 #least window length, select a number
 fl <- nrow(data) - 1 #maximum window length
 ls <- 1 #Step to search for window lengths (1 to look for all windows in the range)
 
