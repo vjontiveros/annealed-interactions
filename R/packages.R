@@ -8,7 +8,8 @@ packages <- c("tidyverse", #used all over
               "rgbif", #used to retrieve ecnasap data
               "strucchangeRcpp", #identifies breakpoints in mu 
               "MASS", #estimates the shape of the gamma distribution
-              "fitdistrplus" #estimates the shape of the gamma distribution
+              "fitdistrplus", #estimates the shape of the gamma distribution
+              "readxl" #opens excel files
               )
 
 

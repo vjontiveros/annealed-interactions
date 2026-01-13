@@ -10,7 +10,8 @@ source("R/nll_gamma.R")
 
 # load("data/processed/ecnasap.RData") 
 # load("data/processed/WVirginia.RData") 
-load("data/processed/portal_rodents.RData")
+# load("data/processed/portal_rodents.RData")
+load("data/processed/women_gut.RData")
 
 # The temporal dataset should be called data. It should have species in the
 # columns and years in the rows. Each cell, thus, should be abundance or
@@ -90,7 +91,7 @@ shape_hat
 
 # Getting the best moments through a moving windows approach. -------------
 
-ll <- 490 #least window length, select a number
+ll <- 49 #least window length, select a number
 fl <- nrow(data) - 1 #maximum window length
 ls <- 1 #Step to search for window lengths (1 to look for all windows in the range)
 
