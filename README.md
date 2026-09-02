@@ -1,4 +1,4 @@
-# manivela-recocida
+# Annealed-interactions
 
 ## Aim
 
