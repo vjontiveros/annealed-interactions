@@ -1,5 +1,5 @@
 source("R/compute_MWSS.R")
-gLV_moments_v3 <- function(data, ranks, off = 0, boot_B = 2000){
+gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
   #data <- data |> dplyr::mutate(dplyr::across(where(is.integer), as.double))
   data <- data[, order(colSums(data), decreasing = T)]+0.
   data[data==0] <- off
