@@ -1,6 +1,6 @@
 #### Inputs for data #####
 #Output directory
-path : 'output_simulations/'
+path : 'output_simulations'
 
 #Time step
 dt : 0.02
