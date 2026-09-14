@@ -28,27 +28,15 @@ sigma = config.get('sigma',0.1)
 Nreal = config.get('Nreal',1)
 Nprint = config.get('Nprint',1)
 Nsteps = config.get('Nsteps',1)
-int_type = config.get('int_type','mutualism')
 sigma_env2 = config.get('sigma_env2',0.1)
-muG = 1.e-3     # Desired mean for the extra species
-sigma2G = 1.e-4 # Desired variance for the extra species
-
+muG = config.get('mu_extra',1.e-3)    # Desired mean for the extra species
+sigma2G = config.get('sigma2_extra',1.e-4) # Desired variance for the extra species
+newpath = config.get('path','simulations/output') #Directory
+x0 = config.get('x0', np.full(Nspecies, 1./Nspecies)) #Initial condition
 # Compute shape (k) and scale (theta)
 kG = muG**2 / sigma2G
 thetaG = sigma2G / muG
-    
-#Initial condition
-x0 = np.full(Nspecies, 1./Nspecies)
 
-#Time steps
-#t = np.arange(0,dt*(Nsteps+1),dt)
-
-
-
-#Temps = np.linspace(0.0,np.max(r),5)
-Temps = [sigma_env2]
-
-newpath = 'simulations/output/'+int_type+'/'+int_type+'_{Nspecies:d}'.format(Nspecies=Nspecies) 
 #Build matrices
 Adiag = np.diag(np.full(Nspecies,-1.0))
 A_nodiag = np.full((Nspecies,Nspecies),mu/Nspecies)
