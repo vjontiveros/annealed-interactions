@@ -1,0 +1,28 @@
+#### Inputs for data #####
+#Time step
+dt : 0.02
+
+#Number of species
+Nspecies : 50
+Nextra : 20
+
+#Growth rates
+r : 1.0
+
+#Interaction matrix
+mu: -2.
+sigma: 1.6
+sigma_env2: 0.1
+
+#Number of realizations
+Nreal : 1 
+
+#Number of steps of each realization
+Nprint :  1
+
+#Number of steps of each realization
+Nsteps :  1000
+
+#Type of interactions
+int_type : "Nspecies_dynamical"
+
