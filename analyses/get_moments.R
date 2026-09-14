@@ -5,7 +5,7 @@ source("R/gLV_moments.R")
 
 # Load the data file with the abundances time series ----------------------
 folder <- "data/processed/"
-file_name <- "portal_rodents"
+file_name <- "Muggelsee_phyto"
 extension <- ".RData"
 load(paste(folder,file_name,extension,sep=""))
 
@@ -16,7 +16,7 @@ df<-data[,order(colSums(data), decreasing = T)]
 min_S <- 3 #minimum number of species in the core
 max_S <- ncol(data) #total number of species in the community
 least<-min(data[data>0]) #minum non-zero abundance
-off <- least/2. # threshold for setting the zero-abundances
+off <- least/10. # threshold for setting the zero-abundances
 boot_B <- 1000 #number of bootstrap resamplings
 
 #Get a dataframe for the parameters of the model from min_S to max_S species
