@@ -7,9 +7,7 @@ folder <- "data/processed/"
 output_folder <- "output/"
 
 # Get a list of all .RData files in the folder ----------------------------
-#file_list <- list.files(path = folder, pattern = "\\.RData$")
-
-file_list <- c("Muggelsee_phyto.RData","Muggelsee_zoo.RData","women_gut.RData","WVirginia.RData")
+file_list <- list.files(path = folder, pattern = "\\.RData$")
 
 # Loop over each file -----------------------------------------------------
 for (file in file_list) {
