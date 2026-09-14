@@ -31,7 +31,7 @@ Nsteps = config.get('Nsteps',1)
 sigma_env2 = config.get('sigma_env2',0.1)
 muG = config.get('mu_extra',1.e-3)    # Desired mean for the extra species
 sigma2G = config.get('sigma2_extra',1.e-4) # Desired variance for the extra species
-newpath = config.get('path','output') #Directory
+newpath = config.get('path','output_simulations') #Directory
 x0 = config.get('x0', np.full(Nspecies, 1./Nspecies)) #Initial condition
 # Compute shape (k) and scale (theta)
 kG = muG**2 / sigma2G
