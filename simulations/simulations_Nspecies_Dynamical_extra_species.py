@@ -48,7 +48,7 @@ x0 = np.full(Nspecies, 1./Nspecies)
 #Temps = np.linspace(0.0,np.max(r),5)
 Temps = [sigma_env2]
 
-newpath = 'simulations/'+int_type+'/'+int_type+'_{Nspecies:d}'.format(Nspecies=Nspecies) 
+newpath = 'simulations/output/'+int_type+'/'+int_type+'_{Nspecies:d}'.format(Nspecies=Nspecies) 
 #Build matrices
 Adiag = np.diag(np.full(Nspecies,-1.0))
 A_nodiag = np.full((Nspecies,Nspecies),mu/Nspecies)
