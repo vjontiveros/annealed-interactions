@@ -1,10 +1,16 @@
 #### Inputs for data #####
+#Output directory
+path : 'output_simulations/'
+
 #Time step
 dt : 0.02
 
 #Number of species
 Nspecies : 50
 Nextra : 20
+
+#Initial conditions
+x0 : np.full(Nspecies, 1./Nspecies)
 
 #Growth rates
 r : 1.0
@@ -23,6 +29,7 @@ Nprint :  1
 #Number of steps of each realization
 Nsteps :  1000
 
-#Type of interactions
-int_type : "Nspecies_dynamical"
+#Parameters for extra species
+mu_extra : 1.e-3
+sigma2_extra : 1.e-4
 
