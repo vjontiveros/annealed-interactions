@@ -1,8 +1,6 @@
 # Annealed-interactions
 
-## Aim
-
-This repository contains the numerical pipeline to reproduce the results and figures from the preprint:  
+This repository contains the numerical pipeline to reproduce the results from the preprint:  
 > **"Consistent determination of stability regimes in natural ecological communities from abundance time series"**
 
 This package analyses the moments of the distribution of interaction coefficients of a model showing generalized Lotka–Volterra (gLV) dynamics.
