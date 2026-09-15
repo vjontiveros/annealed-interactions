@@ -6,7 +6,8 @@ packages <- c("tidyverse", #used all over
               "matrixStats", #used in gLV_moments
               "zoo", #used in best_moments
               "rgbif", #used to retrieve ecnasap data
-              "strucchangeRcpp", #identifies breakpoints in mu 
+              "dplyr", #used in the gamma estimates analysis
+              "tools", #used in the gamma estimates analysis
               "MASS", #estimates the shape of the gamma distribution
               "fitdistrplus", #estimates the shape of the gamma distribution
               "readxl" #opens excel files
