@@ -16,8 +16,10 @@ This package analyses the moments of the distribution of interaction coefficient
 | **`simulations/`** | Core numerical simulation engine for stochastic gLV dynamics. |
 | `├── config_Nspecies_Dynamical.yaml` | Simulation config file (species count, noise level, interaction scales). |
 | `└── simulations_Nspecies_Dynamical_extra_species.py` | Python script for gLV SDE integration with annealed interactions. |
-| **`analyses/`** | R and Python scripts implementing the breakpoint detection and maximum likelihood parameter estimation. |
-| **`output/`** | Directory storing intermediate calculated moment files (`moments_*.csv`). |
+| **`analyses/`** | R and Python scripts implementing the parameter estimation of the annealed dynamics, the core determination, maximum likelihood parameter estimation for the Gamma PDF, and coefficient of variation estimate. |
+| **`output/`** | Directory storing intermediate calculated files. |
+| `├── inference/` | Estimates for the parameters of the annealed dynamics. |
+| `├── coefficient_variation/` | Coefficient of variation of different datasets. |
 | **`data/processed/`** | Processed abundance time-series datasets stored in `.RData` format. |
 
 ---
