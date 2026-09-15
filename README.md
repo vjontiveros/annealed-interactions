@@ -13,16 +13,20 @@ This package analyses the moments of the distribution of interaction coefficient
 
 | Folder / File | Description |
 | :--- | :--- |
+| **`R/`** | Scripts in R for package loading, and subroutines involved in the inference of the parameters of the annealed dynamics. |
+| **`analyses/`** | R and Python scripts implementing the parameter estimation of the annealed dynamics, the core determination, maximum likelihood parameter estimation for the Gamma PDF, and coefficient of variation estimate. |
+| **`data/`** | Empirical data used for this work. |
+| `└── processed/` | Processed abundance time-series datasets stored in `.RData` format. |
+| `└── raw/` | Original abundance time-series datasets selected for this study. |
 | **`simulations/`** | Core numerical simulation engine for stochastic gLV dynamics. |
 | `└── output_simulations/` | Simulated time series analyzed in the manuscript. |
 | `├── config_Nspecies_Dynamical.yaml` | Simulation config file (species count, noise level, interaction scales). |
 | `└── simulations_Nspecies_Dynamical_extra_species.py` | Python script for gLV SDE integration with annealed interactions. |
-| **`analyses/`** | R and Python scripts implementing the parameter estimation of the annealed dynamics, the core determination, maximum likelihood parameter estimation for the Gamma PDF, and coefficient of variation estimate. |
 | **`output/`** | Directory storing intermediate calculated files. |
 | `├── inference/` | Estimates for the parameters of the annealed dynamics. |
 | `├── coefficient_variation/` | Coefficient of variation of different datasets. |
 | `├── results_alpha/` | Estimates of the parameter of the Gamma distribution. |
-| **`data/processed/`** | Processed abundance time-series datasets stored in `.RData` format. |
+
 
 ---
 
