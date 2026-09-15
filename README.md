@@ -98,8 +98,8 @@ This YAML file sets the inputs for each simulated community. The default values 
 | `Nspecies` | `50` | Number of focal species in the community. |
 | `Nextra` | `20` | Number of extra species included in the annealed-interaction dynamics. |
 | `r` | `1.0` | Intrinsic growth rate (shared across species). |
-| `mu` | `-6.` | Mean of the interaction-matrix entries. |
-| `sigma` | `1.6` | Standard deviation of the interaction-matrix entries. |
+| `mu` | `-2.` | Mean of the interaction-matrix entries. |
+| `sigma` | `0.5` | Standard deviation of the interaction-matrix entries. |
 | `sigma_env2` | `0.1` | Environmental noise intensity. |
 | `Nreal` | `1` | Number of independent realizations. |
 | `Nprint` | `1` | Output/print cadence during a realization. |
