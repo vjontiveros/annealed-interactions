@@ -26,9 +26,16 @@ This package analyses the moments of the distribution of interaction coefficient
 
 ### 1. R Dependencies
 The analysis and inference workflows rely on the following key R libraries:
-* **`fitdistrplus`**: Maximum Likelihood Estimation for parametric distributions (Gamma fitting).
-* **`dplyr`**: Data manipulation and transformation.
 
+* **`tidyverse`**: Core data-science collection used throughout the workflows (piping, wrangling, plotting, and tidy data conventions via packages such as `ggplot2`, `tidyr`, `readr`, and `purrr`).
+* **`nnls`**: Non-negative least squares. Fits linear models with coefficients constrained to be ≥ 0, which is useful for mixture weights, compositional unmixing, and other non-negative parameter estimates.
+* **`matrixStats`**: Fast row- and column-wise statistics on numeric matrices (`rowMeans`, `colSds`, `rowMedians`, and related summaries) without converting data to data frames.
+* **`rgbif`**: R client for [GBIF](https://www.gbif.org/) (Global Biodiversity Information Facility). Queries and downloads species occurrence records and related biodiversity metadata.
+* **`dplyr`**: Data manipulation and transformation (filter, select, mutate, join, summarize, and grouped operations).
+* **`tools`**: Base R utilities for file and package tasks, including extension handling (`file_ext`, `file_path_sans_ext`) and checksum helpers used when managing input files.
+* **`MASS`**: Functions from *Modern Applied Statistics with S*, including additional distribution fitting (`fitdistr`), negative-binomial GLMs (`glm.nb`), and multivariate / robust statistical methods.
+* **`fitdistrplus`**: Maximum Likelihood Estimation for parametric distributions (Gamma fitting).
+* **`readxl`**: Imports Excel workbooks (`.xls` / `.xlsx`) into R without requiring Microsoft Excel or Java.
 
 To install and load all necessary R packages used across this repository, simply run:
 
