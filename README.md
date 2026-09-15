@@ -75,11 +75,17 @@ Stochastic gLV integrations are implemented in Python. Running the simulations r
 * **`numpy`**: Array operations and linear algebra for species abundances and interaction matrices.
 * **`scipy`**: Scientific computing utilities used alongside the SDE integrator.
 * **`sdeint`**: Numerical integration of stochastic differential equations ([https://github.com/mattja/sdeint](https://github.com/mattja/sdeint)).
+* **`pyyaml`**: Parsing YAML configuration files to manage simulation parameters and initial conditions.
+
+For the analysis and representation of the files:
+
+* **`matplotlib`**: Plotting and visualizing different quantities.
+* **`pandas`**: Structuring output data into DataFrames for easy post-simulation analysis and CSV export.
 
 Install them with:
 
 ```bash
-pip install numpy scipy sdeint pandas matplotlib pyyaml
+pip install numpy scipy sdeint pyyaml matplotlib pandas
 ```
 
 From the `simulations/` directory, run:
