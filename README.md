@@ -15,7 +15,7 @@ This package analyses the moments of the distribution of interaction coefficient
 | :--- | :--- |
 | **`R/`** | Scripts in R for package loading, and subroutines involved in the inference of the parameters of the annealed dynamics. |
 | **`analyses/`** | R and Python scripts implementing the parameter estimation of the annealed dynamics, the core determination, maximum likelihood parameter estimation for the Gamma PDF, and coefficient of variation estimate. |
-| **`data/`** | Empirical data used for this work. |
+| **`data/`** | Empirical data used for this work and scripts for getting processed files. |
 | `└── processed/` | Processed abundance time-series datasets stored in `.RData` format. |
 | `└── raw/` | Original abundance time-series datasets selected for this study. |
 | **`simulations/`** | Core numerical simulation engine for stochastic gLV dynamics. |
