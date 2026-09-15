@@ -98,6 +98,7 @@ This YAML file sets the inputs for each simulated community. The default values 
 | `dt` | `0.02` | Integration time step. |
 | `Nspecies` | `50` | Number of focal species in the community. |
 | `Nextra` | `20` | Number of extra species excluded of the annealed-interaction dynamics. |
+| `x0` | np.full(Nspecies, 1./Nspecies) | Initial conditions for the population dynamics. |
 | `r` | `1.0` | Intrinsic growth rate (shared across species). |
 | `mu` | `-2.` | Mean of the interaction-matrix entries. |
 | `sigma2_int` | `0.01` | Variance of the interaction-matrix entries. |
