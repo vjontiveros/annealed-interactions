@@ -79,7 +79,7 @@ Stochastic gLV integrations are implemented in Python. Running the simulations r
 Install them with:
 
 ```bash
-pip install numpy scipy sdeint
+pip install numpy scipy sdeint pandas matplotlib pyyaml
 ```
 
 From the `simulations/` directory, run:
