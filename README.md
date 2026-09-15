@@ -28,8 +28,7 @@ This package analyses the moments of the distribution of interaction coefficient
 The analysis and inference workflows rely on the following key R libraries:
 * **`fitdistrplus`**: Maximum Likelihood Estimation for parametric distributions (Gamma fitting).
 * **`dplyr`**: Data manipulation and transformation.
-* **`changepoint`** / **`changepoint.np`**: Breakpoint and change-point analysis via PELT.
-* **`reticulate`**: Interoperability interface for running Python packages inside R.
+
 
 To install and load all necessary R packages used across this repository, simply run:
 
