@@ -17,8 +17,8 @@ r : 1.0
 
 #Interaction matrix
 mu: -2.
-sigma: 1.6
-sigma_env2: 0.1
+sigma2_int: 1.6
+sigma2_env: 0.1
 
 #Number of realizations
 Nreal : 1 
