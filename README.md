@@ -1,6 +1,7 @@
 # Annealed-interactions
 
-This repository contains the numerical pipeline to reproduce the results from the preprint:  
+This repository contains the numerical pipeline to reproduce the results from the preprint:
+
 > **"Consistent determination of stability regimes in natural ecological communities from abundance time series"**
 
 This package analyses the moments of the distribution of interaction coefficients of a model showing generalized Lotka–Volterra (gLV) dynamics.
@@ -14,23 +15,23 @@ This package analyses the moments of the distribution of interaction coefficient
 | **`R/`** | Scripts in R for package loading, and subroutines involved in the inference of the parameters of the annealed dynamics. |
 | **`analyses/`** | R and Python scripts implementing the parameter estimation of the annealed dynamics, the core determination, maximum likelihood parameter estimation for the Gamma PDF, and coefficient of variation estimate. |
 | **`data/`** | Empirical data used for this work and scripts for getting processed files. |
-| `└── processed/` | Processed abundance time-series datasets stored in `.RData` format. |
-| `└── raw/` | Original abundance time-series datasets selected for this study. |
+| `data/processed/` | Processed abundance time-series datasets stored in `.RData` format. |
+| `data/raw/` | Original abundance time-series datasets selected for this study. |
 | **`simulations/`** | Core numerical simulation engine for stochastic gLV dynamics. |
-| `└── output_simulations/` | Simulated time series analyzed in the manuscript. |
-| `├── config_Nspecies_Dynamical.yaml` | Simulation config file (species count, noise level, interaction scales). |
-| `└── simulations_Nspecies_Dynamical_extra_species.py` | Python script for gLV SDE integration with annealed interactions. |
+| `simulations/output_simulations/` | Simulated time series analyzed in the manuscript. |
+| `simulations/config_Nspecies_Dynamical.yaml` | Simulation config file (species count, noise level, interaction scales). |
+| `simulations/simulations_Nspecies_Dynamical_extra_species.py` | Python script for gLV SDE integration with annealed interactions. |
 | **`output/`** | Directory storing intermediate calculated files. |
-| `├── inference/` | Estimates for the parameters of the annealed dynamics. |
-| `├── coefficient_variation/` | Coefficient of variation of different datasets. |
-| `├── results_alpha/` | Estimates of the parameter of the Gamma distribution. |
-
+| `output/inference/` | Estimates for the parameters of the annealed dynamics. |
+| `output/coefficient_variation/` | Coefficient of variation of different datasets. |
+| `output/results_alpha/` | Estimates of the parameter of the Gamma distribution. |
 
 ---
 
 ## Required Packages & Setup
 
 ### 1. R Dependencies
+
 The analysis and inference workflows rely on the following key R libraries:
 
 * **`tidyverse`**: Core data-science collection used throughout the workflows (piping, wrangling, plotting, and tidy data conventions via packages such as `ggplot2`, `tidyr`, `readr`, and `purrr`).
@@ -43,7 +44,68 @@ The analysis and inference workflows rely on the following key R libraries:
 * **`fitdistrplus`**: Maximum Likelihood Estimation for parametric distributions (Gamma fitting).
 * **`readxl`**: Imports Excel workbooks (`.xls` / `.xlsx`) into R without requiring Microsoft Excel or Java.
 
-To install and load all necessary R packages used across this repository, simply run:
+To install and load all necessary R packages used across this repository, run:
 
-```R
+```r
 source("R/packages.R")
+```
+
+`R/packages.R` attaches:
+
+```r
+packages <- c(
+  "tidyverse",    # used all over
+  "nnls",
+  "matrixStats",
+  "rgbif",
+  "dplyr",
+  "tools",        # base R; usually already available
+  "MASS",
+  "fitdistrplus",
+  "readxl"
+)
+```
+
+`tools` ships with base R, so it does not need to be installed from CRAN. `dplyr` is also loaded as part of `tidyverse`; it is listed separately because several scripts attach it on its own.
+
+### 2. Running gLV simulations
+
+Stochastic gLV integrations are implemented in Python. Running the simulations requires:
+
+* **`numpy`**: Array operations and linear algebra for species abundances and interaction matrices.
+* **`scipy`**: Scientific computing utilities used alongside the SDE integrator.
+* **`sdeint`**: Numerical integration of stochastic differential equations ([https://github.com/mattja/sdeint](https://github.com/mattja/sdeint)).
+
+Install them with:
+
+```bash
+pip install numpy scipy sdeint
+```
+
+From the `simulations/` directory, run:
+
+```bash
+python3 simulations_Nspecies_Dynamical_extra_species.py config_Nspecies_Dynamical.yaml
+```
+
+#### Simulation config (`config_Nspecies_Dynamical.yaml`)
+
+This YAML file sets the inputs for each simulated community. The default values are:
+
+| Parameter | Default | Meaning |
+| :--- | :--- | :--- |
+| `dt` | `0.02` | Integration time step. |
+| `Nspecies` | `50` | Number of focal species in the community. |
+| `Nextra` | `20` | Number of extra species included in the annealed-interaction dynamics. |
+| `r` | `1.0` | Intrinsic growth rate (shared across species). |
+| `mu` | `-6.` | Mean of the interaction-matrix entries. |
+| `sigma` | `1.6` | Standard deviation of the interaction-matrix entries. |
+| `sigma_env2` | `0.1` | Environmental noise intensity. |
+| `Nreal` | `1` | Number of independent realizations. |
+| `Nprint` | `1` | Output/print cadence during a realization. |
+| `Nsteps` | `1000` | Number of integration steps per realization. |
+| `int_type` | `"Nspecies_dynamical"` | Interaction regime (annealed, *N*-species dynamical interactions). |
+
+Change these fields to scan different community sizes, interaction scales, or noise levels without editing the Python integrator.
+
+
