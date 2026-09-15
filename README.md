@@ -94,17 +94,19 @@ This YAML file sets the inputs for each simulated community. The default values 
 
 | Parameter | Default | Meaning |
 | :--- | :--- | :--- |
+| `path` | `output_simulations/` | Output directory. |
 | `dt` | `0.02` | Integration time step. |
 | `Nspecies` | `50` | Number of focal species in the community. |
-| `Nextra` | `20` | Number of extra species included in the annealed-interaction dynamics. |
+| `Nextra` | `20` | Number of extra species excluded of the annealed-interaction dynamics. |
 | `r` | `1.0` | Intrinsic growth rate (shared across species). |
 | `mu` | `-2.` | Mean of the interaction-matrix entries. |
-| `sigma` | `0.5` | Standard deviation of the interaction-matrix entries. |
-| `sigma_env2` | `0.1` | Environmental noise intensity. |
+| `sigma2_int` | `0.01` | Variance of the interaction-matrix entries. |
+| `sigma2_env` | `0.1` | Environmental noise intensity. |
 | `Nreal` | `1` | Number of independent realizations. |
 | `Nprint` | `1` | Output/print cadence during a realization. |
 | `Nsteps` | `1000` | Number of integration steps per realization. |
-| `int_type` | `"Nspecies_dynamical"` | Interaction regime (annealed, *N*-species dynamical interactions). |
+| `mu_extra` | `1.e-3` | Mean of the extra species. |
+| `sigma2_extra` | `1.e-4` | Variance of the extra species. |
 
 Change these fields to scan different community sizes, interaction scales, or noise levels without editing the Python integrator.
 
