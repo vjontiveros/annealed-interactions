@@ -14,12 +14,12 @@ for file_path in folder.glob("*.csv"):
         signal = df["MWSS"].to_numpy()
         
         # Apply PELT algorithm
-        modelo = rpt.Pelt(model="l1", jump=1).fit(signal)
+        model = rpt.Pelt(model="l1", jump=1).fit(signal)
         pen=0.5
         if file_path.name == "moments_portal_rodents.csv":
             pen = 0.1 #this is to get more than 1 rupture point
-        puntos_de_cambio = modelo.predict(pen=pen)
+        change_points = model.predict(pen=pen)
         
-        print(f"{file_path.name}: {puntos_de_cambio}")
+        print(f"{file_path.name}: {change_points}")
     else:
         print(f"{file_path.name}: Skipped (No 'MRSS' column found)")
