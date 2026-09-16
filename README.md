@@ -117,4 +117,6 @@ This YAML file sets the inputs for each simulated community. The default values 
 
 Change these fields to scan different community sizes, interaction scales, or noise levels without editing the Python integrator.
 
+### 3. An example
 
+In the `notebook/` directory, there is a Jupyter notebook for simulating a trajectory, inferring the parameters of the model, and determining the core.
