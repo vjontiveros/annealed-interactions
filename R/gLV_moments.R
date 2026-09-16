@@ -1,6 +1,5 @@
 source("R/compute_MWSS.R")
 gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
-  #data <- data |> dplyr::mutate(dplyr::across(where(is.integer), as.double))
   data <- data[, order(colSums(data), decreasing = T)]+0.
   data[data==0] <- off
   out_line <- 1
@@ -11,7 +10,6 @@ gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
                      "e_sigma_env2/r", "e_mu", "e_sigma_int2", "e_r", "e_beta1", "MWSS")
   
   for (i in ranks){
-    print(i)
     data2 <- data[, 1:i]
     M1 <- rowMeans(data2)
     S1 <- rowMeans(data2^2)
@@ -25,7 +23,6 @@ gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
     Sv <- rep(S1[1:n_steps], N)
     
     model1 <- lm(yv ~ xv + Mv)
-    #err1 <- summary(model1)$coefficients[, 2]
     
     res <- lm(yv ~ xv + Mv)$residuals
     #Bootstrapp
@@ -71,7 +68,6 @@ gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
     # -----------------------------
     # Bootstrap
     # -----------------------------
-    #set.seed(123)
     B <- boot_B
     boot_coefs <- matrix(NA, nrow = B, ncol = ncol(X))
     colnames(boot_coefs) <- c("Intercept", "SS")
@@ -94,26 +90,15 @@ gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
     
     # Standard errors
     boot_se <- apply(boot_coefs, 2, sd)
-    #print(boot_se)
-    # 95% percentile confidence intervals
-    boot_ci <- apply(
-      boot_coefs,
-      2,
-      quantile,
-      probs = c(0.005, 0.995)
-    )
-    
-    #print(c(boot_mean, boot_se, boot_ci))
-    
+
     coefs1 <- boot_mean_1
     coefs2 <- boot_mean
-    #model2 <- (lm(sr ~ SS))
-    
+
     err2 <- boot_se
     
     beta1 <- boot_mean_1[2]
     
-    # Resultados
+    # Results
     
     rminusT <- coefs1[1]/abs(beta1)
     mu <- coefs1[3]/abs(beta1)
@@ -124,10 +109,7 @@ gLV_moments <- function(data, ranks, off = 0, boot_B = 2000){
     } else {
     r <- rminusT+ T_est}
     sigma2 <- coefs2[2]*r
-    #sigma2 <- (var(res)/abs(beta1)-2*T_est)*r/(mean(xv^2))
     rm(data2)
-    #theta <- (T_est+0.5*coefs2[2]*mean(S1))
-    #alpha <- (rminusT+mu*mean(M1))/(theta)
     mrss <- compute_mwss(yv, xv, Mv, Sv, coefs1[1], coefs1[2], coefs1[3], coefs2[1]*abs(beta1), coefs2[2]*abs(beta1))
     out[out_line, ] <- 
       c(ToverR, mu, sigma2, r, beta1, err2[1]/r, 
