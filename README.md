@@ -19,6 +19,7 @@ This package analyses the moments of the distribution of interaction coefficient
 | **`data/`** | Empirical data used for this work and scripts for getting processed files. |
 | `data/processed/` | Processed abundance time-series datasets stored in `.RData` format. |
 | `data/raw/` | Original abundance time-series datasets selected for this study. |
+| **`notebook/`** | Jupyter notebook for testing the simulation and analysis codes. |
 | **`simulations/`** | Core numerical simulation engine for stochastic gLV dynamics. |
 | `simulations/output_simulations/` | Simulated time series analyzed in the manuscript. |
 | `simulations/config_Nspecies_Dynamical.yaml` | Simulation config file (species count, noise level, interaction scales). |
