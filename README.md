@@ -120,3 +120,21 @@ Change these fields to scan different community sizes, interaction scales, or no
 ### 3. An example
 
 In the `notebook/` directory, there is a Jupyter notebook for simulating a trajectory, inferring the parameters of the model, and determining the core.
+Prerequisites for running the Jupyter notebook:
+* **Python:** `>= 3.8`
+* **R:** `>= 4.0` *(Must be installed and added to your system `PATH` for `rpy2` integration)*
+
+The required Python packages are:
+* **`jupyter`**: Interactive notebook environment for running `.ipynb` files.
+* **`numpy`**: Fundamental package for array manipulation and numerical operations.
+* **`matplotlib`**: Data visualization and plotting library.
+* **`pyyaml`**: Parsing and handling YAML configuration files.
+* **`tqdm`**: Progress bar utility tailored for tracking loops in Jupyter notebooks.
+* **`ruptures`**: Time-series library for offline change-point detection.
+* **`rpy2`**: Python-to-R interface for executing R code and passing data objects.
+* **`pandas`**: Data structure support required for Python-to-R DataFrame conversions via `rpy2`.
+
+To install these packages run:
+
+```bash
+pip install jupyter numpy matplotlib pyyaml tqdm ruptures rpy2 pandas
