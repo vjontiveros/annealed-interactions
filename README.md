@@ -4,7 +4,9 @@ This repository contains the numerical pipeline to reproduce the results from th
 
 > **"Consistent determination of stability regimes in natural ecological communities from abundance time series"**
 
-This package analyses the moments of the distribution of interaction coefficients of a model showing generalized Lotka–Volterra (gLV) dynamics.
+This package analyses the moments of the distribution of interaction coefficients of a model showing generalized Lotka–Volterra (gLV) dynamics. The prerequisites for running all the codes in this repository are:
+* **Python:** `>= 3.8`
+* **R:** `>= 4.0` *(Must be installed and added to your system `PATH` for `rpy2` integration)*
 
 ---
 
@@ -120,9 +122,6 @@ Change these fields to scan different community sizes, interaction scales, or no
 ### 3. An example
 
 In the `notebook/` directory, there is a Jupyter notebook for simulating a trajectory, inferring the parameters of the model, and determining the core.
-Prerequisites for running the Jupyter notebook:
-* **Python:** `>= 3.8`
-* **R:** `>= 4.0` *(Must be installed and added to your system `PATH` for `rpy2` integration)*
 
 The required Python packages are:
 * **`jupyter`**: Interactive notebook environment for running `.ipynb` files.
