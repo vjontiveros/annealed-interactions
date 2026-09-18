@@ -9,10 +9,14 @@ packages <- c("tidyverse", #used all over
               "tools", #used in the gamma estimates analysis
               "MASS", #estimates the shape of the gamma distribution
               "fitdistrplus", #estimates the shape of the gamma distribution
-              "readxl" #opens excel files
+              "readxl", #opens excel files
+              "httr", "readr", "fs" #download Mugelsee data
               )
 
-
+library(httr)
+library(readr)
+library(fs)
+library(tidyverse)
 # Check and install if needed ---------------------------------------------
 
 installed <- rownames(installed.packages())
