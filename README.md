@@ -46,6 +46,9 @@ The analysis and inference workflows rely on the following key R libraries:
 * **`MASS`**: Functions from *Modern Applied Statistics with S*, including additional distribution fitting (`fitdistr`), negative-binomial GLMs (`glm.nb`), and multivariate / robust statistical methods.
 * **`fitdistrplus`**: Maximum Likelihood Estimation for parametric distributions (Gamma fitting).
 * **`readxl`**: Imports Excel workbooks (`.xls` / `.xlsx`) into R without requiring Microsoft Excel or Java.
+* **`httr`**: HTTP client for R, used to send requests and download the Müggelsee BioTIME datasets.
+* **`readr`**: Fast and consistent reading of rectangular data files such as CSV files, including the BioTIME reference tables.
+* **`fs`**: Cross-platform file-system utilities, used when downloading and managing the Müggelsee datasets.
 
 To install and load all necessary R packages used across this repository, run:
 
@@ -65,11 +68,14 @@ packages <- c(
   "tools",        # base R; usually already available
   "MASS",
   "fitdistrplus",
-  "readxl"
+  "readxl",
+  "httr",
+  "readr",
+  "fs"             # used to download and handle Müggelsee data
 )
 ```
 
-`tools` ships with base R, so it does not need to be installed from CRAN. `dplyr` is also loaded as part of `tidyverse`; it is listed separately because several scripts attach it on its own.
+`tools` ships with base R and therefore normally does not need to be installed from CRAN. `dplyr` and `readr` are also included in `tidyverse`, but they are listed explicitly because they are used directly in specific workflows.
 
 ### 2. Running gLV simulations
 
